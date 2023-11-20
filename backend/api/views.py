@@ -1,9 +1,10 @@
 from django.contrib.auth.models import User
 from rest_framework import generics, viewsets
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Task
+from .ownpermissions import ProfilePermission
 from .serializers import TaskSerializer, UserSerializer
 
 
@@ -11,7 +12,7 @@ from .serializers import TaskSerializer, UserSerializer
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (AllowAny,)
+    permission_classes = (ProfilePermission,)
 
 
 class ManageUserView(generics.RetrieveUpdateAPIView):
