@@ -111,24 +111,21 @@ const DrfApiFetch = () => {
             </li>
           ))}
         </ul>{" "}
-      </div>
-      <br />
-
-      {/* CREATE */}
-      <div style={contaierStyle}>
-        <input
-          type="text"
-          name="title"
-          value={editedTask.title}
-          onChange={(evt) => handleInputChange(evt)}
-          placeholder="New task ?"
-          required
-        />
-        {editedTask.id ? (
-          <button onClick={() => editTask(editedTask)}>Update</button>
-        ) : (
-          <button onClick={() => createTask(editedTask)}>Create</button>
-        )}
+        <div>
+          <input
+            type="text"
+            name="title"
+            value={editedTask.title}
+            onChange={(evt) => handleInputChange(evt)}
+            placeholder="New task ?"
+            required
+          />
+          {editedTask.id ? (
+            <button onClick={() => editTask(editedTask)}>Update</button>
+          ) : (
+            <button onClick={() => createTask(editedTask)}>Create</button>
+          )}
+        </div>
       </div>
       <br />
 
